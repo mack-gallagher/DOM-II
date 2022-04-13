@@ -7,7 +7,20 @@ function createRandomColor() {
   return `rgb(${randomNumOne},${randomNumTwo},${randomNumThree})`;
 }
 
+
+/* *********************************************** */
+/* ** EVENT: CHANGE TITLE COLOR ON DBLCLICK ****** */
+/* *********************************************** */
+
 const siteTitle = document.querySelector('h1.logo-heading'); // "Fun Bus"
+
+siteTitle.addEventListener('dblclick',(event) => {
+  siteTitle.setAttribute('style',`color: ${createRandomColor()}`);
+});
+
+/* *********************************************** */
+/* *********************************************** */
+/* *********************************************** */
 
 const funBusHeader = document.querySelector('.home h2'); // "Welcome To Fun Bus!"
 
