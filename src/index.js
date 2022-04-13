@@ -11,8 +11,26 @@ const siteTitle = document.querySelector('h1.logo-heading'); // "Fun Bus"
 
 const funBusHeader = document.querySelector('.home h2'); // "Welcome To Fun Bus!"
 
+/* ***************************************** */
+/* ** EVENTS: FADE IMGS ON MOUSEOVER, UNFADE IMGS ON MOUSEOUT ******** */
+/* ***************************************** */
+
 const imgs = document.querySelectorAll('img');
 
+imgs.forEach(x => {x.addEventListener('mouseover', (event) => {
+    console.log(x);
+    x.setAttribute('style','filter: grayscale(50%)');
+  });
+});
+
+imgs.forEach(x => {x.addEventListener('mouseout', (event) => {
+    x.setAttribute('style','filter: grayscale(0%)');
+  });
+});
+
+/* ****************************************** */
+/* ****************************************** */
+/* ****************************************** */
 
 /* ****************************************** */
 /* *** EVENT: CLICK => CONGRATULATIONS ****** */
