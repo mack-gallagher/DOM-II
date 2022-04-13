@@ -31,7 +31,6 @@ const funBusHeader = document.querySelector('.home h2'); // "Welcome To Fun Bus!
 const imgs = document.querySelectorAll('img');
 
 imgs.forEach(x => {x.addEventListener('mouseover', (event) => {
-    console.log(x);
     x.setAttribute('style','filter: grayscale(50%)');
   });
 });
@@ -73,6 +72,55 @@ destButtons.forEach(x => {
 /* *********************************** */
 
 
+/* ******************************************************************** */
+/* *** MAKING BUTTONS LINK TO BOTTOM OF PAGE TO DEMONSTRATE PREVENTDEFAULT */
+/* ******************************************************************** */
+
+const lowElement = document.querySelector('footer p');
+window.addEventListener('load', (event) => {
+  lowElement.id = 'page-bottom';
+});
+
+const navButtons = document.querySelectorAll('.nav-link');
+
+window.addEventListener('load', (event) => {
+  navButtons.forEach(x => {x.href = "#page-bottom"});
+});
+
+const explainerParent = document.querySelector('.nav-container');
+const explainer = document.createElement('div');
+const explainerText = document.createElement('p');
+explainerText.textContent = 'Check the box to toggle default behavior for the nav links!';
+
+const explainerInput = document.createElement('input');
+explainerInput.setAttribute('type','checkbox');
+
+function handleClick(event) {
+    this.setAttribute('style',`color: ${createRandomColor()};`);
+    event.preventDefault();
+    this.classList.add('default-off');
+}
+
+explainerInput.addEventListener('change',(event) => {
+  for (let i = 0; i < navButtons.length; i++) {
+    if (navButtons[i].classList.contains('default-off')) {
+      navButtons[i].removeEventListener('click',handleClick);
+      navButtons[i].classList.remove('default-off');
+    } else {
+      navButtons[i].addEventListener('click', handleClick);
+    }
+  }
+});
+
+explainer.appendChild(explainerText);
+explainer.appendChild(explainerInput);
+
+explainerParent.appendChild(explainer);
+
+
+/* ****************************************** */
+/* ****************************************** */
+/* ****************************************** */
 
 /* *********************************************************************** */
 /* *** EVENT: ON DOCUMENT LOAD INFORM USER OF MAKING BUTTONS CHANGE COLOR **/
