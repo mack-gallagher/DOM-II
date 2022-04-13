@@ -219,3 +219,18 @@ warningParent.appendChild(warning);
 /* *************************** */
 /* *************************** */
 /* *************************** */
+
+/* ***************************************** */
+/* *** EVENT 10: COPY => THANK USER ******** */
+/* ***************************************** */
+
+document.addEventListener('copy', (event) => {
+  const newNotif = document.createElement('p');
+  newNotif.textContent = "we're sincerely glad you like this page! :)";
+  document.body.appendChild(newNotif);
+  console.log('tSET');
+});
+
+/* ********************************************************** */
+/* ********************************************************** */
+/* ********************************************************** */
