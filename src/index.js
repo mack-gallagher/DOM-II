@@ -9,7 +9,7 @@ function createRandomColor() {
 
 
 /* *********************************************** */
-/* ** EVENT: CHANGE TITLE COLOR ON DBLCLICK ****** */
+/* ** EVENT 1: DBLCLICK => CHANGE TITLE COLOR ****** */
 /* *********************************************** */
 
 const siteTitle = document.querySelector('h1.logo-heading'); // "Fun Bus"
@@ -24,9 +24,9 @@ siteTitle.addEventListener('dblclick',(event) => {
 
 const funBusHeader = document.querySelector('.home h2'); // "Welcome To Fun Bus!"
 
-/* ***************************************** */
-/* ** EVENTS: FADE IMGS ON MOUSEOVER, UNFADE IMGS ON MOUSEOUT ******** */
-/* ***************************************** */
+/* ************************************************************************* */
+/* ** EVENTS 2 & 3: MOUSEOVER => FADE IMGS, MOUSEOUT => UNFADE IMGS ******** */
+/* ************************************************************************* */
 
 const imgs = document.querySelectorAll('img');
 
@@ -45,7 +45,7 @@ imgs.forEach(x => {x.addEventListener('mouseout', (event) => {
 /* ****************************************** */
 
 /* ****************************************** */
-/* *** EVENT: CLICK => CONGRATULATIONS ****** */
+/* *** EVENT 4: CLICK => CONGRATULATIONS ****** */
 /* ****************************************** */
 
 const destButtons = document.querySelectorAll('.destination .btn');
@@ -72,9 +72,9 @@ destButtons.forEach(x => {
 /* *********************************** */
 
 
-/* ******************************************************************** */
-/* *** MAKING BUTTONS LINK TO BOTTOM OF PAGE TO DEMONSTRATE PREVENTDEFAULT */
-/* ******************************************************************** */
+/* ********************************************************************************************* */
+/* *** EVENT 5: CHANGE | + | MAKING BUTTONS LINK TO BOTTOM OF PAGE TO DEMONSTRATE PREVENTDEFAULT */
+/* ********************************************************************************************* */
 
 const lowElement = document.querySelector('footer p');
 window.addEventListener('load', (event) => {
@@ -122,9 +122,9 @@ explainerParent.appendChild(explainer);
 /* ****************************************** */
 /* ****************************************** */
 
-/* *********************************************************************** */
-/* *** EVENT: ON DOCUMENT LOAD INFORM USER OF MAKING BUTTONS CHANGE COLOR **/
-/* *********************************************************************** */
+/* **************************************************************** */
+/* *** EVENT 6: LOAD => INFORM USER OF MAKING BUTTONS CHANGE COLOR **/
+/* **************************************************************** */
 
 
 const infoParent = document.querySelector('.content-destination');
@@ -136,8 +136,12 @@ window.addEventListener('load', (event) => {
   infoParent.appendChild(testElem);
   });
 
+/* *********************************** */
+/* *********************************** */
+/* *********************************** */
+
 /* *********************************************************** */
-/* * EVENT 2: KEYDOWON => MAKE DESTINATION BUTTONS FLASH ***** */
+/* * EVENT 7: KEYDOWN => MAKE DESTINATION BUTTONS FLASH ***** */
 /* *********************************************************** */
 
 destButtons[0].setAttribute('data-key','49');
@@ -156,7 +160,7 @@ window.addEventListener('keydown', (event) => {
 /* *********************************** */
 
 /* *********************************** */
-/* ** EVENT: REPORT WINDOW SIZE ****** */
+/* ** EVENT 8: REPORT WINDOW SIZE ****** */
 /* *********************************** */
 
 const windowSizeReporter = document.createElement('p');
@@ -165,3 +169,7 @@ window.addEventListener('resize', (event) => {
   windowSizeReporter.textContent = `Current window height: ${window.innerHeight} | Current window width: ${window.innerWidth}`;
   document.body.appendChild(windowSizeReporter);
 });
+
+/* *********************************** */
+/* *********************************** */
+/* *********************************** */
