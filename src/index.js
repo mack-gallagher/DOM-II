@@ -22,8 +22,6 @@ siteTitle.addEventListener('dblclick',(event) => {
 /* *********************************************** */
 /* *********************************************** */
 
-const funBusHeader = document.querySelector('.home h2'); // "Welcome To Fun Bus!"
-
 /* ************************************************************************* */
 /* ** EVENTS 2 & 3: MOUSEOVER => FADE IMGS, MOUSEOUT => UNFADE IMGS ******** */
 /* ************************************************************************* */
@@ -173,3 +171,51 @@ window.addEventListener('resize', (event) => {
 /* *********************************** */
 /* *********************************** */
 /* *********************************** */
+
+
+/* **************************************************************** */
+/* ******** EVENT 9: MAKE HEADER FLICKER ON UPWARD WHEEL ********** */
+/* **************************************************************** */
+
+const funBusHeader = document.querySelector('.home h2'); // "Welcome To Fun Bus!"
+
+let flashSet = false;
+
+function flashOnWheel(event) {
+  if (event.deltaY < 0) {
+    let i = 0;
+    while (i > event.deltaY) {
+    funBusHeader.setAttribute('style',`color: ${createRandomColor()}`);
+    i--;
+    }
+  }
+  flashSet = true;
+}
+
+const warningParent = document.querySelector('.intro');
+const warning = document.createElement('div');
+
+const warningText = document.createElement('p');
+warningText.textContent = 'WARNING: Flashing lights! Click to toggle.';
+warningText.setAttribute('style','color: red;');
+
+const warningBox = document.createElement('input');
+warningBox.setAttribute('type','checkbox');
+warningBox.addEventListener('change', (event) => {
+  if (flashSet) {
+    window.removeEventListener('wheel',flashOnWheel);
+    flashSet = false;
+  } else {
+    window.addEventListener('wheel',flashOnWheel);
+  }
+});
+  
+
+warning.appendChild(warningText);
+warning.appendChild(warningBox);
+
+warningParent.appendChild(warning);
+
+/* *************************** */
+/* *************************** */
+/* *************************** */
