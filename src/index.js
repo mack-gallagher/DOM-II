@@ -47,6 +47,16 @@ destButtons.forEach(x => {
 /* *** EVENT: ON DOCUMENT LOAD INFORM USER OF MAKING BUTTONS CHANGE COLOR **/
 /* *********************************************************************** */
 
+
+const infoParent = document.querySelector('.content-destination');
+
+window.addEventListener('load', (event) => {
+  const testElem = document.createElement('div');
+  testElem.textContent = "Press the '1', '2', or '3' keys to highlight destination picks below!";
+  testElem.setAttribute('style','text-align: center; font-size: 3rem; color: red; margin-top: 5%');
+  infoParent.appendChild(testElem);
+  });
+
 /* *********************************************************** */
 /* * EVENT 2: KEYDOWON => MAKE DESTINATION BUTTONS FLASH ***** */
 /* *********************************************************** */
