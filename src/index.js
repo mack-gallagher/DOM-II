@@ -93,3 +93,14 @@ window.addEventListener('keydown', (event) => {
 /* *********************************** */
 /* *********************************** */
 /* *********************************** */
+
+/* *********************************** */
+/* ** EVENT: REPORT WINDOW SIZE ****** */
+/* *********************************** */
+
+const windowSizeReporter = document.createElement('p');
+
+window.addEventListener('resize', (event) => {
+  windowSizeReporter.textContent = `Current window height: ${window.innerHeight} | Current window width: ${window.innerWidth}`;
+  document.body.appendChild(windowSizeReporter);
+});
